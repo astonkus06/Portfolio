@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurys Stonkus — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14181A;
+    --panel:#1C2224;
+    --ink:#EDEFEE;
+    --ink-soft:#9AA5A2;
+    --line:#333B3D;
+    --amber:#E0A24B;
+    --teal:#4FA69F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0;
+  }
+  a{ color:inherit; }
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  header{
+    padding:56px 0 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:20px;
+    border-bottom:2px solid var(--ink);
+  }
+  header h1{
+    font-size:38px;
+    font-weight:700;
+  }
+  header .role{
+    color:var(--ink-soft);
+    margin-top:6px;
+    font-size:16px;
+  }
+  header .contact{
+    text-align:right;
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.7;
+  }
+  header .contact a{ text-decoration:none; border-bottom:1px solid var(--teal); }
+
+  .board{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin:28px 0;
+  }
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:22px 24px;
+  }
+  .panel h2{
+    font-size:14px;
+    font-weight:600;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+  .panel.wide{ grid-column:1 / -1; }
+
+  .about p{ margin:0; max-width:75ch; }
+
+  .row{
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .row:first-child{ border-top:none; padding-top:0; }
+  .row .head{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    align-items:baseline;
+    flex-wrap:wrap;
+  }
+  .row .name{ font-weight:500; font-size:17px; }
+  .row .when{ font-size:13px; color:var(--ink-soft); }
+  .row ul{
+    margin:8px 0 0;
+    padding-left:18px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .row ul li{ margin-bottom:4px; }
+  .row .tag{
+    display:inline-block;
+    margin-top:6px;
+    font-size:12px;
+    padding:2px 9px;
+    border:1px solid var(--teal);
+    color:var(--teal);
+  }
+
+  .edu-item{ padding:14px 0; border-top:1px solid var(--line); }
+  .edu-item:first-child{ border-top:none; padding-top:0; }
+  .edu-item .school{ font-weight:500; font-size:16px; }
+  .edu-item .when{ font-size:13px; color:var(--ink-soft); margin-bottom:6px; }
+  .edu-item ul{ margin:6px 0 0; padding-left:18px; font-size:14px; color:var(--ink-soft); }
+  .edu-item ul li{ margin-bottom:4px; }
+
+  .bar-list .bar-row{ margin-bottom:14px; }
+  .bar-list .bar-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    margin-bottom:5px;
+  }
+  .bar-track{ height:8px; background:var(--bg); border:1px solid var(--line); }
+  .bar-fill{ height:100%; background:var(--amber); }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chips span{
+    font-size:13px;
+    padding:5px 11px;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+  }
+
+  .langs{ display:flex; gap:28px; margin-bottom:16px; }
+  .langs .lang .n{ font-family:'Space Grotesk', sans-serif; font-size:15px; font-weight:600; }
+  .langs .lang .l{ font-size:13px; color:var(--ink-soft); }
+
+  .extra-line{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    padding:8px 0;
+    border-top:1px solid var(--line);
+  }
+  .extra-line:first-child{ border-top:none; padding-top:0; }
+  .extra-line .k{ color:var(--ink-soft); }
+
+  footer{
+    padding:32px 0 56px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  footer a{
+    text-decoration:none;
+    font-size:15px;
+    padding:9px 16px;
+    border:1px solid var(--ink);
+  }
+  footer a:hover{ background:var(--ink); color:var(--bg); }
+
+  @media (max-width:640px){
+    .board{ grid-template-columns:1fr; }
+    header{ flex-direction:column; align-items:flex-start; }
+    header .contact{ text-align:left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Aurys Stonkus</h1>
+      <div class="role">BSc Business and Management — Royal Holloway, University of London</div>
+    </div>
+    <div class="contact">
+      <div>07305 940516</div>
+      <div><a href="mailto:aurysstonkus.06@gmail.com">aurysstonkus.06@gmail.com</a></div>
+      <div><a href="#">LinkedIn</a></div>
+    </div>
+  </header>
+
+  <div class="board">
+
+    <div class="panel wide about">
+      <h2>Overview</h2>
+      <p>
+        Business and Management student at Royal Holloway (2023–2026) with coursework spanning
+        International Financial Accounting and Business Data Analytics. Internship experience at
+        PwC in financial reporting, backed by ongoing data analysis training through IBM and
+        Microsoft, and several years across customer-facing retail and hospitality roles.
+      </p>
+    </div>
+
+    <div class="panel wide">
+      <h2>Experience</h2>
+
+      <div class="row">
+        <div class="head">
+          <span class="name">PwC — Internship Experience UK, Finance, Professional Services &amp; Consulting</span>
+          <span class="when">June 2024</span>
+        </div>
+        <ul>
+          <li>Reviewed financial statements for a client using PwC's provided task framework</li>
+          <li>Completed a stock count sampling exercise, identifying a £15 shortfall in total stock value</li>
+          <li>Calculated Net Realisable Value, finding total inventory value was £74.90 above historical value</li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <div class="head">
+          <span class="name">Waitrose — Supermarket Assistant</span>
+          <span class="when">April 2025 – Present</span>
+        </div>
+        <ul>
+          <li>Built customer relationships through meaningful conversations to enhance the shopping experience and strengthen retention</li>
+          <li>Applied product knowledge to recommend suited products, e.g. free-from or Waitrose No.1 Collection items</li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <div class="head">
+          <span class="name">Jaggers — Waiter / Food Server</span>
+          <span class="when">May – August 2023</span>
+        </div>
+        <ul>
+          <li>Served 1–10 tables at a time while maintaining service standards</li>
+          <li>Managed customer needs and expectations through accurate product delivery</li>
+          <li>Developed methods that produced 20% faster service</li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <div class="head">
+          <span class="name">Diggerland — Ride Operator</span>
+          <span class="when">July – November 2022</span>
+        </div>
+        <ul>
+          <li>Ran 1-man ride operations, managing customer safety on and off the ride</li>
+          <li>Teamed up 2–3 times a week with other operators to keep the park running and clean</li>
+          <li>Performed safety checks 1–2 times per ride during operation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel wide">
+      <h2>Education</h2>
+
+      <div class="edu-item">
+        <div class="school">BSc Business and Management, Royal Holloway, University of London</div>
+        <div class="when">September 2023 – July 2026</div>
+        <ul>
+          <li>Business Data Analytics — using Alteryx to clean and forecast on Excel data sets</li>
+          <li>International Financial Accounting — comparing accounting standards via the EU Fourth Directive</li>
+          <li>Marketing Strategy in Context — analysed Tissot using SWOT and the marketing mix</li>
+          <li>Fundamentals of Entrepreneurship — maximised bike sales in a market simulation</li>
+        </ul>
+      </div>
+
+      <div class="edu-item">
+        <div class="school">Holcombe Grammar, Kent</div>
+        <div class="when">September 2016 – 2023</div>
+        <ul>
+          <li>A-levels: Finance (B), Business (C), Criminology (C) · GCSEs: 3 B's, 5 C's</li>
+          <li>Future Year 7's Open Day Ambassador, representing Business and Finance</li>
+          <li>STEM competition runner-up, University of Greenwich (Medway campus)</li>
+          <li>Form Council representative; Principles Award for Determination and Grit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Certifications</h2>
+      <div class="chips">
+        <span>IBM — Data Analysis and Visualization Foundations (2026)</span>
+        <span>Microsoft — Data Analysis with SQL, Excel &amp; Power BI (2026)</span>
+        <span>Google AI Professional Certificate (2026)</span>
+        <span>Enterprise Car Club Challenge (2024)</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Tools</h2>
+      <div class="bar-list">
+        <div class="bar-row">
+          <div class="bar-label"><span>Microsoft Office</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Alteryx</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>SQL</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Power BI / Cognos</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Languages &amp; extras</h2>
+      <div class="langs">
+        <div class="lang">
+          <div class="n">English</div>
+          <div class="l">Fluent</div>
+        </div>
+        <div class="lang">
+          <div class="n">Lithuanian</div>
+          <div class="l">Fluent</div>
+        </div>
+      </div>
+      <div class="extra-line"><span class="k">Driving</span><span>Full UK driving licence</span></div>
+      <div class="extra-line"><span class="k">Art</span><span>Bronze Level 1 Award, Trinity College London</span></div>
+      <div class="extra-line"><span class="k">Sport</span><span>Adult Contact American Football (current); University American Football (previous)</span></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="mailto:aurysstonkus.06@gmail.com">Email</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+  </footer>
+</div>
+
+</body>
+</html>
